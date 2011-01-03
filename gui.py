@@ -2,9 +2,11 @@
 
 
 from PyQt4 import QtCore, QtGui
-import exkayseedee
-
+import sys
 class Ui_MainWindow(object):
+    def checkAnswer(self):
+        sys.exit(0)
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(398, 554)
@@ -76,3 +78,21 @@ class Ui_MainWindow(object):
         self.pushButton_6.setText(QtGui.QApplication.translate("MainWindow", "$6", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_7.setText(QtGui.QApplication.translate("MainWindow", "Reload", None, QtGui.QApplication.UnicodeUTF8))
 
+
+class MyForm(QtGui.QMainWindow):
+    def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+    def checkAnswer(self):
+        sys.exit(0)
+
+    def load(self):
+        sys.exit(0)
+
+if __name__ == "__main__":
+    app = QtGui.QApplication(sys.argv)
+    myapp = MyForm()
+    myapp.show()
+    sys.exit(app.exec_())
