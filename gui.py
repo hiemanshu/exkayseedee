@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 260, 391, 261))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 260, 391, 271))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName("gridLayout")
@@ -39,10 +39,13 @@ class Ui_MainWindow(object):
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName("verticalLayout")
-        MainWindow.setCentralWidget(self.centralwidget)
         self.textEdit = QtGui.QTextEdit(self.verticalLayoutWidget)
         self.textEdit.setObjectName("textEdit")
         self.verticalLayout.addWidget(self.textEdit)
+        self.label = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
@@ -74,11 +77,15 @@ class MyForm(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.score = 0
+        self.ui.label.setText("Score : %d" % self.score)
+ 
 
     def checkAnswer(self, x):
+        x = x - 1
         if x == self.t:
             self.ui.textEdit.setText("Your Answer is correct, please reload to change question.")
             self.score = self.score + 1
+            self.ui.label.setText("Score : %d" % self.score)
         else:
             self.ui.textEdit.setText("Your Answer is not correct, please try again or hit reload to change question.")
         
