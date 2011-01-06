@@ -12,7 +12,10 @@ class ComicsDB:
         return self.db.execute("select * from comics where id = ?", (id,)).fetchone()
 
     def getAlt(self, id):
-        return self.db.execute("select alt from comics where id = ?",(id,)).fetchone()
+        t1 = self.db.execute("select alt from comics where id = ?",(id,)).fetchone()
+        t2 = str(t1)
+        t3 = t2[3:-3]
+        return t3
     
     def getTitle(self, id):
         t1 = self.db.execute("select title from comics where id = ?",(id,)).fetchone()
