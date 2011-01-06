@@ -3,6 +3,7 @@
 from PyQt4 import QtCore, QtGui
 import sys, random
 from database import ComicsDB
+import functools as ft
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -46,20 +47,14 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         
-        a = "Test1"
-        b = "Test2"
-        c = "Test3"
-        d = "Test4"
-        e = "Test5"
-        
-        self.retranslateUi(MainWindow, a, b, c, d, e)
+        self.retranslateUi(MainWindow, "", "", "", "", "")
         MainWindow.load()
-        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), MainWindow.checkAnswer)
-        QtCore.QObject.connect(self.pushButton_3, QtCore.SIGNAL("clicked()"), MainWindow.checkAnswer)
-        QtCore.QObject.connect(self.pushButton_5, QtCore.SIGNAL("clicked()"), MainWindow.checkAnswer)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 1))
+        QtCore.QObject.connect(self.pushButton_3, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 3))
+        QtCore.QObject.connect(self.pushButton_5, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 5))
         QtCore.QObject.connect(self.pushButton_6, QtCore.SIGNAL("clicked()"), MainWindow.load)
-        QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL("clicked()"), MainWindow.checkAnswer)
-        QtCore.QObject.connect(self.pushButton_4, QtCore.SIGNAL("clicked()"), MainWindow.checkAnswer)
+        QtCore.QObject.connect(self.pushButton_2, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 2))
+        QtCore.QObject.connect(self.pushButton_4, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer,4))
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow, a, b, c, d, e):
@@ -78,10 +73,14 @@ class MyForm(QtGui.QMainWindow):
         self.db = ComicsDB('data.db')
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.score = 0
 
-    def checkAnswer(self):
-        self.ui.textEdit.setText("Just to make a check for it")
-        self.ui.textEdit.adjustSize()
+    def checkAnswer(self, x):
+        if x == self.t:
+            self.ui.textEdit.setText("Your Answer is correct, please reload to change question.")
+            self.score = self.score + 1
+        else:
+            self.ui.textEdit.setText("Your Answer is not correct, please try again or hit reload to change question.")
         
     def load(self):
         id = random.randrange(1,842,1)
@@ -90,8 +89,8 @@ class MyForm(QtGui.QMainWindow):
         title = [self.db.getTitle(random.randrange(1,840,1))]
         for i in range(1,5):
             title.append(self.db.getTitle(random.randrange(1,840,1)))
-        t = random.randrange(0,5,1)
-        title[t] = titlet
+        self.t = random.randrange(0,5,1)
+        title[self.t] = titlet
         self.ui.retranslateUi(self, title[0], title[1], title[2], title[3], title [4])
         self.ui.textEdit.setText(alt)
 
