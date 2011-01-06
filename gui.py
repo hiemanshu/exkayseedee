@@ -83,9 +83,9 @@ class MyForm(QtGui.QMainWindow):
     def checkAnswer(self, x):
         x = x - 1
         if x == self.t:
-            self.ui.textEdit.setText("Your Answer is correct, please reload to change question.")
             self.score = self.score + 1
             self.ui.label.setText("Score : %d" % self.score)
+            self.load()
         else:
             self.ui.textEdit.setText("Your Answer is not correct, please try again or hit reload to change question.")
         
