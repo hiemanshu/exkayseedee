@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
 
-self.retranslateUi(MainWindow, "", "", "", "", "")
+        self.retranslateUi(MainWindow, "", "", "", "", "")
         MainWindow.load()
         QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 1))
         QtCore.QObject.connect(self.pushButton_3, QtCore.SIGNAL("clicked()"), ft.partial(MainWindow.checkAnswer, 3))
