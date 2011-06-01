@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'exkayseedee.ui'
 #
-# Created: Wed Jun  1 21:49:07 2011
+# Created: Wed Jun  1 22:20:32 2011
 #      by: PyQt4 UI code generator 4.8.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -11,6 +11,7 @@ from PyQt4 import QtCore, QtGui
 import sys, random
 from database import ComicsDB
 import functools as ft
+
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -19,11 +20,11 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(800, 480)
+        MainWindow.resize(800, 440)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(9, 9, 371, 441))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(9, 9, 371, 421))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setMargin(0)
@@ -41,7 +42,7 @@ class Ui_MainWindow(object):
         spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.verticalLayout.addItem(spacerItem2)
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(390, 10, 401, 441))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(390, 10, 401, 421))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setMargin(0)
@@ -49,50 +50,46 @@ class Ui_MainWindow(object):
         self.pushButton_4 = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton_4.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton_4.setFont(font)
         self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
         self.gridLayout.addWidget(self.pushButton_4, 0, 0, 1, 1)
         self.pushButton_5 = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton_5.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton_5.setFont(font)
         self.pushButton_5.setObjectName(_fromUtf8("pushButton_5"))
         self.gridLayout.addWidget(self.pushButton_5, 0, 1, 1, 1)
         self.pushButton_3 = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton_3.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
         self.gridLayout.addWidget(self.pushButton_3, 1, 0, 1, 1)
         self.pushButton_2 = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton_2.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.gridLayout.addWidget(self.pushButton_2, 1, 1, 1, 1)
         self.pushButton = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.gridLayout.addWidget(self.pushButton, 2, 0, 1, 1)
         self.pushButton_6 = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton_6.setMinimumSize(QtCore.QSize(0, 100))
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(9)
         self.pushButton_6.setFont(font)
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
         self.gridLayout.addWidget(self.pushButton_6, 2, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setObjectName(_fromUtf8("statusbar"))
-        MainWindow.setStatusBar(self.statusbar)
-
 
         self.retranslateUi(MainWindow, "", "", "", "", "")
         MainWindow.load()
